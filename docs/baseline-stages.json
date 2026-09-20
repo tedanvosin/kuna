@@ -1,7 +1,7 @@
 {
   "data_footer": [
-    1254,
-    1254
+    1261,
+    1261
   ],
   "passing": [
     "data:ALIASOVERLAP #1: the 4-byte read at a0+7 is a local ahead of a store into it",
@@ -930,6 +930,13 @@
     "data:charbyte #7: with the option off a byte compared with 0xe9 is uint1 against a number",
     "data:charbyte #8: with the option on the constant takes char with the byte, so the comparison stays true for 0xe9",
     "data:charbyte #9: with the option off the byte pushes uint1 * over the pointer strlen made char *",
+    "data:charptr #1: with the option off a parameter a declared char * is one addition away from is an integer - the bug",
+    "data:charptr #2: with the option on the callee's declaration reaches it",
+    "data:charptr #3: a parameter shifted before it reaches the declaration is refused in both passes",
+    "data:charptr #4: a one-byte read at a fixed offset is a struct field, so the pointer keeps its placeholder in both passes",
+    "data:charptr #5: a value also read four bytes wide is not a character pointer in either pass",
+    "data:charptr #6: a callee that declares a pointer at something else contradicts a character pointer in both passes",
+    "data:charptr #7: the byte-at-a-time compare is already char * without the option, and the option does not move it",
     "data:checker-stack-aggregate #1: the partial-backed scalar is declared exactly once",
     "data:checker-stack-aggregate #2: the low piece keeps the shared name",
     "data:checker-stack-aggregate #3: the high piece keeps the shared name",
